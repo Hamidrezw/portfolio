@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --background: #292f36;
+  --foreground: #1a1e23;
+  --primary: #12f7d6;
+  --secondary: #43454d;
+  --primary-light: #98faec;
+  --blue: #0C73B8;
+  --blue-light: #28A9E0;
+  --js: #E7A020;
+  --tailwind: #06B6D4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-js: var(--js);
+  --color-tailwind: var(--tailwind);
+  --font-ubuntu: var(--font-ubuntu);
+  --font-mono: var(--font-mono);
+
+  --font-family-ubuntu: var(--font-ubuntu);
+  --font-family-mono: var(--font-mono);
+}
+
+body {
+  background: var(--background);
+}
