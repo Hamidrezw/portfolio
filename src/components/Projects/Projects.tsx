@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "Atbin Ista",
-    image: "/images/Atbin.png",
+    image: "/images/atbin.png",
     des: "Developing magnet pages and menus",
     live: "https://atbinista.com/",
     code: "",

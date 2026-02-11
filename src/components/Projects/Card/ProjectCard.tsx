@@ -26,7 +26,7 @@ const techs = [
 const ProjectCard = ({ data }: { data: Props }) => {
   return (
     <div className="bg-background border-primary border-2 rounded-xl transition-all duration-250 group hover:shadow-[0_0_20px_rgba(18,247,214,0.6)] p-4">
-      <div className="relative h-50">
+      <div className="relative h-80 md:h-50">
         <Image src={data.image} alt="" className="rounded-lg" fill />
       </div>
       <div className="flex flex-col items-center text-white font-ubuntu select-none">

@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-t-secondary text-white text-[16px] font-ubuntu flex flex-col gap-y-4 sm:flex-row items-center justify-around bg-foreground py-4">
+    <footer className="border-t border-t-secondary text-white text-[16px] font-ubuntu flex flex-col gap-y-4 lg:flex-row items-center justify-between bg-foreground py-4">
       <div className="flex items-center">
         ©2026 Hamidreza Nemati.All rights reserved.
       </div>
       <span>Privacy Policy Terms & Conditions</span>
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex items-center justify-center gap-7.5 lg:gap-10">
         <a href="https://github.com/Hamidrezw" className="w-8 h-8 bg-primary rounded-full p-2 cursor-pointer">
           <svg
             width="16"
