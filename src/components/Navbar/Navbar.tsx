@@ -95,7 +95,7 @@ const Navbar = () => {
 
   return (
     <div className="hidden lg:block">
-      <div className="fixed top-40 left-8 rounded-[40px] flex flex-col gap-y-6 p-2 bg-foreground border-2 border-white">
+      <div className="fixed z-10 top-40 left-8 rounded-[40px] flex flex-col gap-y-6 p-2 bg-foreground border-2 border-white">
         {icons.map((icon, index) => (
           <a
             key={index}
