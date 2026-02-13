@@ -4,6 +4,7 @@ import Header from "@/src/components/Layout/Header";
 import { Ubuntu, IBM_Plex_Mono } from "next/font/google";
 import Navbar from "@/src/components/Navbar/Navbar";
 import Footer from "@/src/components/Layout/Footer";
+import { Toaster } from "react-hot-toast";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Toaster position="top-center" />
       </body>
     </html>
   );
