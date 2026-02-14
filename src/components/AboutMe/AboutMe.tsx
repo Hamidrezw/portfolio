@@ -6,7 +6,7 @@ const AboutMe = () => {
     <div className="bg-foreground" id="AboutMe">
       <div className="bg-[url(/images/aboutmebg.png)] bg-center bg-no-repeat bg-cover py-10 md:py-20">
         <TitleContent title="AboutMe" content="Who am I?" />
-        <div className="flex items-center justify-center gap-6 mt-4 mx-auto px-2 sm:px-0 container ">
+        <div className="flex items-center justify-center gap-6 mt-4 mx-auto px-3 sm:px-0 container ">
           <div>
             <div className="bg-background px-6 py-3 mx-auto sm:mx-0 border-primary border-2 flex items-center justify-center text-white font-ubuntu text-4xl rounded-tl-[30px] rounded-br-[30px] w-fit">
               About Me

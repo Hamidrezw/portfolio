@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header className="sticky bg-white/0.5 backdrop-blur-lg border-b border-secondary">
-      <div className="flex w-[95%] xl:w-[90%] mx-auto items-center font-mono justify-between h-25">
+      <div className="flex px-3 sm:px-0 container mx-auto items-center font-mono justify-between h-18 lg:h-20">
         <div className="flex items-center text-white font-bold text-[16px] md:text-xl xl:text-3xl">
           <span className="text-primary mr-2">{"<H/>"}</span>
           HamidrezaNemati

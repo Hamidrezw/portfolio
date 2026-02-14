@@ -13,7 +13,7 @@ const Home = () => {
         <h1 className="text-center text-primary-light! font-ubuntu font-medium text-5xl lg:text-6xl">
           Web Developer
         </h1>
-        <div className="flex justify-center xl:justify-between mx-auto px-2 sm:px-0 container flex-wrap gap-8 mt-10 lg:mt-16">
+        <div className="flex justify-center xl:justify-between mx-auto px-3 sm:px-0 container flex-wrap gap-8 mt-10 lg:mt-16">
           <InfoCard />
           <AboutMeCode />
           <TechStack />

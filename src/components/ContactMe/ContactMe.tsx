@@ -1,39 +1,51 @@
 "use client";
 import toast from "react-hot-toast";
 import TitleContent from "../Layout/TitleContent";
+import { useState } from "react";
 
 const ContactMe = () => {
 
-  const WORKER_URL = "https://contact-to-telegram.hamidrezajob24.workers.dev";
+  const [isSending, setIsSending] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSending) return;
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
+    const name = (formData.get("name") as string)?.trim();
+    const email = (formData.get("email") as string)?.trim();
+    const message = (formData.get("message") as string)?.trim();
+
+    if (!name || name.length < 2)
+      return toast.error("Name must be at least 2 characters");
+    if (!email || !/^\S+@\S+\.\S+$/.test(email))
+      return toast.error("Invalid email address");
+    if (!message || message.length < 10)
+      return toast.error("Message must be at least 10 characters");
 
     try {
-      const res = await fetch(WORKER_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      setIsSending(true);
+
+      await toast.promise(
+        fetch("https://contact-to-telegram.hamidrezajob24.workers.dev", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message }),
+        }),
+        {
+          loading: "Sending...",
+          success: "Message sent ✅",
+          error: "Failed ❌",
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
-      if (!res.ok) throw new Error("Failed");
-
-      toast.success("Message sent successfully 🚀");
       form.reset();
     } catch (err) {
-      toast.error("Something went wrong ❌");
-      console.log(err);
+      console.error(err);
+    } finally {
+      setIsSending(false);
     }
   };
   return (
@@ -54,7 +66,7 @@ const ContactMe = () => {
       >
         {["name", "email"].map((sub, i) => (
           <div className="flex flex-col gap-4.5 col-span-1" key={i}>
-            <span className="text-primary text-[16px]">your {sub}*</span>
+            <span className="text-primary text-[16px]">*your {sub}</span>
             <input
               type={sub === "name" ? "text" : "email"}
               name={sub}
@@ -66,7 +78,7 @@ const ContactMe = () => {
         ))}
 
         <div className="flex flex-col gap-4.5 md:col-span-2">
-          <span className="text-primary text-[16px]">your message*</span>
+          <span className="text-primary text-[16px]">*your message</span>
           <textarea
             name="message"
             required
@@ -78,9 +90,9 @@ const ContactMe = () => {
 
         <button
           type="submit"
+          disabled={isSending}
           className="text-background bg-primary flex items-center justify-center gap-4 py-3 px-6 cursor-pointer rounded-4xl w-fit mx-auto mt-10 text-xl font-ubuntu md:col-span-2"
         >
-          Send Message
           <svg
             width="24"
             height="24"
@@ -95,6 +107,7 @@ const ContactMe = () => {
               fill="#292F36"
             />
           </svg>
+          Send Message
         </button>
       </form>
     </div>

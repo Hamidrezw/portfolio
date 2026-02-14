@@ -36,7 +36,7 @@ const Projects = () => {
           title="Works"
           content="I had the pleasure of working with these awesome projects"
         />
-        <div className="mx-auto px-5 sm:px-0 sm:container">
+        <div className="mx-auto px-10 sm:px-0 sm:container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
             {projects.map((item, i) => (
               <ProjectCard key={i} data={item} />

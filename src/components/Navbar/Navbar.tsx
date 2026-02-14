@@ -1,8 +1,15 @@
 "use client";
 import { MouseEvent } from "react";
 
-const icons = [
+interface NavIcon {
+  name: string;
+  href: string;
+  svg: React.ReactNode;
+}
+
+const icons: NavIcon[] = [
   {
+    name: "Home",
     href: "#",
     svg: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -34,6 +41,7 @@ const icons = [
     ),
   },
   {
+    name: "About Me",
     href: "#AboutMe",
     svg: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -51,6 +59,7 @@ const icons = [
     ),
   },
   {
+    name: "Skills",
     href: "#Skills",
     svg: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -66,6 +75,7 @@ const icons = [
     ),
   },
   {
+    name: "Works",
     href: "#Works",
     svg: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -82,7 +92,7 @@ const icons = [
 
 const Navbar = () => {
   const style =
-    "w-12 h-12 rounded-[40px] transition-all duration-300 hover:bg-white text-white hover:text-background flex items-center justify-center";
+    "w-12 h-12 rounded-[40px] transition-all duration-300 hover:bg-white text-white hover:text-background flex items-center justify-center relative group";
 
   const handleScroll = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -95,7 +105,7 @@ const Navbar = () => {
 
   return (
     <div className="hidden lg:block">
-      <div className="fixed z-10 top-40 left-8 rounded-[40px] flex flex-col gap-y-6 p-2 bg-foreground border-2 border-white">
+      <div className="fixed z-10 top-1/2 left-8 -translate-y-1/2 rounded-[40px] flex flex-col gap-y-6 p-2 bg-foreground border-2 border-white">
         {icons.map((icon, index) => (
           <a
             key={index}
@@ -104,6 +114,9 @@ const Navbar = () => {
             onClick={(e) => handleScroll(e, icon.href)}
           >
             {icon.svg}
+            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 px-4 py-2 bg-white font-ubuntu text-background text-[16px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+              {icon.name}
+            </div>
           </a>
         ))}
       </div>
